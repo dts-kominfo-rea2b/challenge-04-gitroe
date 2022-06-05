@@ -8,7 +8,23 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dataTanggal, urutan) => {
+  const hasilKonversi = [];
+
+  for (const tanggal of dataTanggal) {
+    const tanggalEpoch = (new Date(tanggal).getTime() / 1000);
+    const epochString = tanggalEpoch.toString();
+    hasilKonversi.push(epochString);
+  }
+
+  if (urutan === undefined) {
+    hasilKonversi.sort((dT, u) => dT - u);
+    return hasilKonversi.join('-');
+  } else {
+    hasilKonversi.sort((dT, u) => dT + u);
+    return hasilKonversi[urutan];
+  }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
